@@ -35,8 +35,16 @@
 
 </bookinfo>
 
-&preface;
-&installing;
+
+&source-preface;
+&source-roll-overview;
+
+<chapter id="installing" xreflabel="Installing">
+<title>Installing</title>
+&source-roll-installing-standard;
+&source-roll-installing-onthefly;
+</chapter>
+
 &using;
 &copyrights;
 

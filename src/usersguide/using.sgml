@@ -10,7 +10,57 @@
 After you installed the Diskwiper roll you can wipe a node disk by two means:
 </para>
 
-</section>
+<itemizedlist>
 
+<listitem>
+        <para>
+        Changing the membership of a node to Diskwiper, for example:
+        <computeroutput>rocks set host membership nodename diskwiper</computeroutput>
+	</para>
+</listitem>
+
+<listitem>
+        <para>
+        Setting the attribute diskwiper to true for a particular node, for example:
+	<computeroutput>rocks set host attr nodename diskwiper true</computeroutput>
+	</para>
+</listitem>
+</itemizedlist>
+
+
+<para>
+Afterward, it is necessary to reinstall the node.
+</para>
+
+<screen>
+ssh nodename /boot/kickstart/cluster-kickstart-pxe
+</screen>
+
+<para>
+
+During the node re-installation the Diskwiper Roll will wipe all the
+data from all the disks in the systems (using the command
+<computeroutput>scrub</computeroutput>). When all the disks are wiped
+the node will be powered off.
+</para>
+
+<para>
+It is important to verify that all the disk have been succesfully wiped
+looking in the <computeroutput>/var/log/messages</computeroutput> file
+on the frontend. Each time a disk is wiped sucessfully it is reported
+with a line similar to the following:
+</para>
+
+<screen>
+Oct  3 21:24:05 nodename logger: nodename device /dev/sda wipe succeed
+</screen>
+
+<para>
+If some problem occured during the wipe, instead of
+<computeroutput>succeed</computeroutput> the message
+will report <computeroutput>failed</computeroutput>.
+</para>
+
+</section>
 
 </chapter>
