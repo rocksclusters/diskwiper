@@ -1,0 +1,40 @@
+<?xml version="1.0" standalone="no"?>
+
+<kickstart>
+
+
+	<description>
+	Your diskwiper roll description here
+	</description>
+
+	<copyright>
+	Copyright (c) 2000 - 2012 The Regents of the University of California.
+	All rights reserved. Rocks(r) v5.5/v6.0 www.rocksclusters.org
+	
+	</copyright>
+
+	<changelog>
+	$Log$
+	</changelog>
+
+	<package>roll-diskwiper-usersguide</package>
+	<package>scrub</package>
+
+<post>
+
+# create the appliance and set the appliance attr
+/opt/rocks/bin/rocks add appliance diskwiper  membership=Diskwiper \
+				node=compute
+/opt/rocks/bin/rocks set appliance attr diskwiper diskwiper true
+
+
+
+# publish scrub binary which is needed to wipe disks
+mkdir /var/www/html/scrub
+cp /usr/bin/scrub /var/www/html/scrub/
+# no need to be executable
+chmod -x /var/www/html/scrub/scrub
+
+</post>
+
+</kickstart>
