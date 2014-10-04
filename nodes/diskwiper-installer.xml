@@ -42,7 +42,7 @@ for i in $dev; do
     logger -p local0.info "&hostname; device $i wipe $result"
 done
 
-
+/sbin/poweroff
 </pre>
 
 </kickstart>
