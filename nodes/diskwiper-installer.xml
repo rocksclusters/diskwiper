@@ -33,14 +33,21 @@ kill `cat /var/run/syslogd.pid`
 /sbin/rsyslogd -c 4
 
 
+function scrub_device {
+    echo scrubbing device $1
+    /tmp/scrub -f $1 &amp;&gt; /tmp/scrub.`basename $1`.log &amp;&amp; result=succeed || result=failed
+    echo scrubbing device $1 $result
+    logger -p local0.info "&hostname; device $1 wipe $result"
+}
+
+
 dev=`ls /dev/{sd[a-z],sd[a-z][a-z]}`
 echo devices to be scrubbed $dev
 for i in $dev; do
-    echo scrubbing device $i
-    /tmp/scrub $i &amp;&amp; result=succeed || result=failed
-    echo scrubbing device $i $result
-    logger -p local0.info "&hostname; device $i wipe $result"
+	scrub_device "$i" &amp;
 done
+
+wait
 
 /sbin/poweroff
 </pre>
