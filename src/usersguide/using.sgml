@@ -15,14 +15,14 @@ After you installed the Diskwiper roll you can wipe a node disk by two means:
 <listitem>
         <para>
         Changing the membership of a node to Diskwiper, for example:
-        <computeroutput>rocks set host membership nodename diskwiper</computeroutput>
+        <computeroutput>rocks set host membership nodename Diskwiper</computeroutput>
 	</para>
 </listitem>
 
 <listitem>
         <para>
         Setting the attribute diskwiper to true for a particular node, for example:
-	<computeroutput>rocks set host attr nodename diskwiper true</computeroutput>
+	<computeroutput>rocks set host attr nodename Diskwiper true</computeroutput>
 	</para>
 </listitem>
 </itemizedlist>
