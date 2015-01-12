@@ -22,7 +22,7 @@ After you installed the Diskwiper roll you can wipe a node disk by two means:
 <listitem>
         <para>
         Setting the attribute diskwiper to true for a particular node, for example:
-	<computeroutput>rocks set host attr nodename Diskwiper true</computeroutput>
+	<computeroutput>rocks set host attr nodename diskwiper true</computeroutput>
 	</para>
 </listitem>
 </itemizedlist>
